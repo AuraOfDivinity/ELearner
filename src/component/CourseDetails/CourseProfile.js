@@ -36,7 +36,7 @@ class CourseProfile extends React.Component {
           <CardContent>
             {this.state.units.map((currentUnit, index) => {
               return (
-                <div>
+                <div style={{border:'groove', width:"25%", margin:"5px", textAlign:"center"}}>
                   <Typography gutterBottom variant="h5" component="h2">
                     {currentUnit}
                   </Typography>

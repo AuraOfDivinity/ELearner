@@ -69,10 +69,10 @@ class Unit extends React.Component {
             </CardContent>
           </CardActionArea>
           <CardActions>
-            <Button size="small" color="primary" onClick={this.handlePrevClick}>
+            <Button size="small" variant="outlined" color="primary" onClick={this.handlePrevClick}>
               Prevoius Unit
             </Button>
-            <Button size="small" color="primary" onClick={this.handleNextClick}>
+            <Button size="small" variant="outlined" color="primary" onClick={this.handleNextClick}>
               Next Unit
             </Button>
           </CardActions>

@@ -103,8 +103,9 @@ class AllCourses extends React.Component {
                     <CardActions>
                       <Link to="/CourseProfile">
                         <Button
-                          size="small"
-                          color="primary"
+                          size="small" 
+                          variant="contained" 
+                          color="primary" 
                           onClick={this.handleViewClick}
                         >
                           View Course
@@ -112,7 +113,8 @@ class AllCourses extends React.Component {
                       </Link>
                       <Button
                         size="small"
-                        color="danger"
+                        variant="contained"
+                        color="secondary" 
                         onClick={this.handleDeleteClick}
                       >
                         Delete Course

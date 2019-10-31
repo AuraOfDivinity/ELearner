@@ -97,6 +97,7 @@ class StudentDashboard extends React.Component {
                       <Link to="/CourseProfile">
                         <Button
                           size="small"
+                          variant="contained"
                           color="primary"
                           onClick={this.handleRegisterClick}
                         >
