@@ -9,9 +9,9 @@ import Unit from "./UnitComponent/Unit";
 import AdminDashboard from "./AdminDashboard/AdminDashboard";
 import Aboutus from "./Aboutus";
 import Contactus from "./Contactus";
-
-
+import inputform from "./inputform";
 import AddCourse from "./ModeratorDashboard/AddCourse";
+
 
 
 const Main = () => (
@@ -26,7 +26,7 @@ const Main = () => (
       <Route exact path= "/admindash" component={AdminDashboard}/>
       <Route exact path="/aboutus" component={Aboutus}/>
       <Route exact path="/contactus" component={Contactus}/>
-
+      <Route exact path="/inputform" component={inputform}/>
       <Route exact path="/AddCourse" component={AddCourse} />
 
     </Switch>
