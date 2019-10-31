@@ -59,15 +59,15 @@ class Login extends Component {
   };
   onSumbit = event => {
     event.preventDefault();
+    firebase.auth().signInWithEmailAndPassword(this.state.email,this.state.password).then((res) => {
+      localStorage.setItem('uid',res.user.uid);
+      //redirect
       NotificationManager.info("Welcome :)", "Success");
       window.location='/';
-      //redirect
-      localStorage.setItem('uid',res.user.uid);
-    firebase.auth().signInWithEmailAndPassword(this.state.email,this.state.password).then((res) => {
+    }).catch((e)=>{
       alert(e);
     });
   }
-    }).catch((e)=>{
 
   render() {
     const classes = useStyles;
