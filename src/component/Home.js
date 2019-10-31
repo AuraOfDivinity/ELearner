@@ -145,9 +145,7 @@ export default function Home() {
                    <Link to="/AddCourse" ><Button size="small" color="primary">
                       View
                     </Button></Link>
-                    <Button size="small" color="primary">
-                      Edit
-                    </Button>
+                    
                   </CardActions>
                 </Card>
               </Grid>
