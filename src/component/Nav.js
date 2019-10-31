@@ -43,7 +43,7 @@ export default function Nav() {
           <Link to="/SignUp">
             <Button color="inherit">Sign Up</Button>
           </Link>
-          <Link to="/AddCourse">
+          <Link to="/login">
             <Button color="inherit">Login</Button>
           </Link>
         </Toolbar>
