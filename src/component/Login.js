@@ -63,9 +63,10 @@ class Login extends Component {
       localStorage.setItem('uid',res.user.uid);
       //redirect
       NotificationManager.info("Welcome :)", "Success");
-      window.location='/';
+      window.location='/StudentDashboard';
     }).catch((e)=>{
-      alert(e);
+      NotificationManager.error(e.message, "Server failed");
+           
     });
   }
 
@@ -141,3 +142,5 @@ class Login extends Component {
     );
   }
 }
+
+export default Login;
