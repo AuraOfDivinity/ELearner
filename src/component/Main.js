@@ -6,6 +6,7 @@ import Login from "./Login";
 import StudentDashboard from "./StudentDashboard/StudentDashboard";
 import MainQuizComponent from "./QuizComponent/MainQuizComponent";
 import Unit from "./UnitComponent/Unit";
+import AddCourse from "./ModeratorDashboard/AddCourse";
 
 const Main = () => (
   <main>
@@ -16,6 +17,7 @@ const Main = () => (
       <Route exact path="/StudentDashboard" component={StudentDashboard} />
       <Route exact path="/MainQuizComponent" component={MainQuizComponent} />
       <Route exact path="/Unit" component={Unit} />
+      <Route exact path="/AddCourse" component={AddCourse} />
     </Switch>
   </main>
 );
