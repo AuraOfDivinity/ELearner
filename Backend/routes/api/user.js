@@ -1,14 +1,6 @@
 const express = require('express');
 const router = express.Router();
-
-var admin = require("firebase-admin");
-
-var serviceAccount = require("C:/Users/user/Downloads/service-account-file.json");
-
-admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-    databaseURL: "https://elearner-2a954.firebaseio.com"
-});
+const admin = require("firebase-admin");
 
 router.get('/', (req, res) => {
 

@@ -80,6 +80,14 @@ class MainQuizComponent extends React.Component {
       });
     }
   };
+
+  getBackgroundColor = index => {
+    if (this.state.wrongAnswers.includes(index)) {
+      return "#ff9696";
+    } else {
+      return "#89ff7c";
+    }
+  };
   render() {
     const { options, myAnswer, currentQuestion, isEnd } = this.state;
 
@@ -93,7 +101,14 @@ class MainQuizComponent extends React.Component {
             The correct answer's for the questions were
             <ul>
               {quizData.map((item, index) => (
-                <li className="options" key={index} style={{ margin: "10px" }}>
+                <li
+                  className="options"
+                  key={index}
+                  style={{
+                    backgroundColor: this.getBackgroundColor(index),
+                    margin: "10px"
+                  }}
+                >
                   {item.answer}
                 </li>
               ))}
