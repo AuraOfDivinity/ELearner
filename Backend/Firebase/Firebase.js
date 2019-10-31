@@ -1,7 +1,6 @@
-import firebase from "firebase/app";
-import "firebase/auth";
-import "firebase/firestore";
+const firebase = require('firebase');
 
+const init = () => {
 const config = {
   apiKey: "AIzaSyDKnnCXqILQnOllSta3T6Rtm18rarIhLZk",
   authDomain: "elearner-2a954.firebaseapp.com",
@@ -12,7 +11,6 @@ const config = {
 };
 
 firebase.initializeApp(config);
+}
 
-export const auth = firebase.auth();
-export const db = firebase.firestore();
-export default firebase;
+module.exports = init;
