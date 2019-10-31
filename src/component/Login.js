@@ -14,6 +14,8 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import firebase from "firebase";
+import axios from "axios";
+import { NotificationManager } from "react-notifications";
 
 const useStyles = makeStyles(theme => ({
   "@global": {
@@ -63,9 +65,11 @@ class Login extends Component {
       .then(res => {
         localStorage.setItem("uid", res.user.uid);
         //redirect
+        NotificationManager.info("Welcome :)", "Success");
+        window.location = "/StudentDashboard";
       })
       .catch(e => {
-        alert(e);
+        NotificationManager.error(e.message, "Invalid Username and Password");
       });
   };
 
