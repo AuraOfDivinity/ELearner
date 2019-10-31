@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Paper from "@material-ui/core/Paper";
@@ -70,7 +70,16 @@ function getStepContent(step) {
   }
 }
 
-export default function AddCourse() {
+class AddCourse extends Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: "",
+      password: ""
+    };
+}
+  
+render(){
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
 
@@ -81,7 +90,6 @@ export default function AddCourse() {
   const handleBack = () => {
     setActiveStep(activeStep - 1);
   };
-
   return (
     <React.Fragment>
       <CssBaseline />
@@ -135,3 +143,6 @@ export default function AddCourse() {
     </React.Fragment>
   );
 }
+}
+
+export default AddCourse;
