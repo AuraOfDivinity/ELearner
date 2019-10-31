@@ -74,7 +74,7 @@ class Login extends Component {
             NotificationManager.info("Welcome :)", "Success");
             window.location = "/admindash";
             break;
-            case 'modarator': 
+            case 'moderator': 
             NotificationManager.info("Welcome :)", "Success");
             //  window.location = "/StudentDashboard";
             break;
