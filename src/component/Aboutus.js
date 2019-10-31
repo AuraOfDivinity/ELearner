@@ -76,7 +76,7 @@ export default function Home() {
               color="textPrimary"
               gutterBottom
             >
-              E-learner
+             About E-learner
             </Typography>
             <Typography
               variant="h5"
@@ -84,48 +84,18 @@ export default function Home() {
               color="textSecondary"
               paragraph
             >
-              Welcome to Elearner web site here are some courses available in
-              our site. Please login to start courses.
+             Our Vision & Mission - අපේ දැක්ම
             </Typography>
             <div className={classes.heroButtons}>
-              <Grid container spacing={2} justify="center">
-                <Grid item>
-                  <Link to="/SignUp">
-                    <Button variant="contained" color="primary">
-                      Sign Up
-                    </Button>
-                  </Link>
-                </Grid>
-                <Grid item>
-                  <Link to="/Login">
-                    <Button variant="outlined" color="primary">
-                      Login
-                    </Button>
-                  </Link>
-                </Grid>
-                <Grid item>
-                  <Link to="/aboutus">
-                    <Button variant="outlined" color="primary">
-                      About Us
-                    </Button>
-                  </Link>
-                </Grid>
-                <Grid item>
-                  <Link to="/contactus">
-                    <Button variant="outlined" color="primary">
-                      Contact Us
-                    </Button>
-                  </Link>
-                </Grid>
-              </Grid>
+              
             </div>
           </Container>
         </div>
         <Container className={classes.cardGrid} maxWidth="md">
           {/* End hero unit */}
           <Grid container spacing={4}>
-            {cards.map(card => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
+            
+              <Grid item >
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
@@ -134,31 +104,66 @@ export default function Home() {
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      Heading
+                    Education
                     </Typography>
                     <Typography>
-                      This is a media card. You can use this section to describe
-                      the content.
+                    To provide access to the wealth of knowledge embedded in the extraordinary minds of each other.
                     </Typography>
                   </CardContent>
-                  <CardActions>
-                    <Button size="small" color="primary">
-                      View
-                    </Button>
-                    <Button size="small" color="primary">
-                      Edit
-                    </Button>
-                  </CardActions>
+                  
                 </Card>
               </Grid>
-            ))}
+            
+          </Grid>
+        </Container>
+        <Container className={classes.cardGrid} maxWidth="md">
+          {/* End hero unit */}
+          <Grid container spacing={2}>
+           
+              <Grid item  xs={1000} sm={6} md={4}>
+                <Card className={classes.card}>
+                  <CardMedia
+                    className={classes.cardMedia}
+                    image="https://source.unsplash.com/random"
+                    title="Image title"
+                  />
+                  <CardContent className={classes.cardContent}>
+                    <Typography gutterBottom variant="h5" component="h2">
+                    Elearning Online
+                    </Typography>
+                    <Typography>
+                    We provide the platform and the tools to teach and learn whatever that is in demand to make a better tomorrow.
+                    </Typography>
+                  </CardContent>
+                  
+                </Card>
+              </Grid>
+              <Grid item  xs={1000} sm={6} md={4}>
+                <Card className={classes.card}>
+                  <CardMedia
+                    className={classes.cardMedia}
+                    image="https://source.unsplash.com/random"
+                    title="Image title"
+                  />
+                  <CardContent className={classes.cardContent}>
+                    <Typography gutterBottom variant="h5" component="h2">
+                    Elearning Online
+                    </Typography>
+                    <Typography>
+                    We provide the platform and the tools to teach and learn whatever that is in demand to make a better tomorrow.
+                    </Typography>
+                  </CardContent>
+                  
+                </Card>
+              </Grid>
+          
           </Grid>
         </Container>
       </main>
       {/* Footer */}
       <footer className={classes.footer}>
         <Typography variant="h6" align="center" gutterBottom>
-          Footer
+         Elearning
         </Typography>
         <Typography
           variant="subtitle1"
@@ -166,7 +171,7 @@ export default function Home() {
           color="textSecondary"
           component="p"
         >
-          Something here to give the footer a purpose!
+      Team Exception
         </Typography>
         <Copyright />
       </footer>
