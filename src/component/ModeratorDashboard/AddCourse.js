@@ -70,26 +70,20 @@ function getStepContent(step) {
   }
 }
 
-class AddCourse extends Component{
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: "",
-      password: ""
-    };
-}
-  
-render(){
-  const classes = useStyles();
-  const [activeStep, setActiveStep] = React.useState(0);
+export default function AddCourse() {
+ 
 
-  const handleNext = () => {
-    setActiveStep(activeStep + 1);
-  };
+const classes = useStyles();
+const [activeStep, setActiveStep] = React.useState(0);
 
-  const handleBack = () => {
-    setActiveStep(activeStep - 1);
-  };
+const handleNext = () => {
+  setActiveStep(activeStep + 1);
+};
+
+const handleBack = () => {
+  setActiveStep(activeStep - 1);
+};
+ 
   return (
     <React.Fragment>
       <CssBaseline />
@@ -143,6 +137,3 @@ render(){
     </React.Fragment>
   );
 }
-}
-
-export default AddCourse;
