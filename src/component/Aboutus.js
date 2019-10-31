@@ -87,35 +87,42 @@ export default function Home() {
              Our Vision & Mission - අපේ දැක්ම
             </Typography>
             <div className={classes.heroButtons}>
-              
+            <div className={classes.heroButtons}>
+              <Grid container spacing={2} justify="center">
+                <Grid item>
+                  <Link to="/SignUp">
+                    <Button variant="outlined" color="primary">
+                      Sign Up
+                    </Button>
+                  </Link>
+                </Grid>
+                <Grid item>
+                  <Link to="/Login">
+                    <Button variant="outlined" color="primary">
+                      Login
+                    </Button>
+                  </Link>
+                </Grid>
+                <Grid item>
+                  <Link to="/aboutus">
+                    <Button variant="contained" color="primary">
+                      About Us
+                    </Button>
+                  </Link>
+                </Grid>
+                <Grid item>
+                  <Link to="/contactus">
+                    <Button variant="outlined" color="primary">
+                      Contact Us
+                    </Button>
+                  </Link>
+                </Grid>
+              </Grid>
+            </div>
             </div>
           </Container>
         </div>
-        <Container className={classes.cardGrid} maxWidth="md">
-          {/* End hero unit */}
-          <Grid container spacing={4}>
-            
-              <Grid item >
-                <Card className={classes.card}>
-                  <CardMedia
-                    className={classes.cardMedia}
-                    image="https://source.unsplash.com/random"
-                    title="Image title"
-                  />
-                  <CardContent className={classes.cardContent}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                    Education
-                    </Typography>
-                    <Typography>
-                    To provide access to the wealth of knowledge embedded in the extraordinary minds of each other.
-                    </Typography>
-                  </CardContent>
-                  
-                </Card>
-              </Grid>
-            
-          </Grid>
-        </Container>
+        
         <Container className={classes.cardGrid} maxWidth="md">
           {/* End hero unit */}
           <Grid container spacing={2}>
@@ -147,17 +154,39 @@ export default function Home() {
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant="h5" component="h2">
-                    Elearning Online
+                   
+                      A Oasis for Achievement
                     </Typography>
                     <Typography>
-                    We provide the platform and the tools to teach and learn whatever that is in demand to make a better tomorrow.
+                    provides you all the opportunities to take the next step in your life. Whether you are advancing in your career or going at it by yourself, the knowledge you gather here will immensely help you to achieve your goals
+                    </Typography>
+                  </CardContent>
+                  
+                </Card>
+              </Grid>
+              <Grid item  xs={1000} sm={6} md={4}>
+                <Card className={classes.card}>
+                  <CardMedia
+                    className={classes.cardMedia}
+                    image="https://source.unsplash.com/random"
+                    title="Image title"
+                  />
+                  <CardContent className={classes.cardContent}>
+                    <Typography gutterBottom variant="h5" component="h2">
+                   
+                    Education
+                    </Typography>
+                    <Typography>
+                    To provide access to the wealth of knowledge embedded in the extraordinary minds of each other.
                     </Typography>
                   </CardContent>
                   
                 </Card>
               </Grid>
           
+          
           </Grid>
+          
         </Container>
       </main>
       {/* Footer */}

@@ -84,18 +84,50 @@ export default function Home() {
               color="textSecondary"
               paragraph
             >
-             Our Vision & Mission - අපේ දැක්ම
+              සම්බන්ද වෙන්න
             </Typography>
+           
             <div className={classes.heroButtons}>
-              
+              <Grid container spacing={2} justify="center">
+                <Grid item>
+                  <Link to="/SignUp">
+                    <Button variant="outlined" color="primary">
+                      Sign Up
+                    </Button>
+                  </Link>
+                </Grid>
+                <Grid item>
+                  <Link to="/Login">
+                    <Button variant="outlined" color="primary">
+                      Login
+                    </Button>
+                  </Link>
+                </Grid>
+                <Grid item>
+                  <Link to="/aboutus">
+                    <Button variant="outlined" color="primary">
+                      About Us
+                    </Button>
+                  </Link>
+                </Grid>
+                <Grid item>
+                  <Link to="/contactus">
+                    <Button variant="contained" color="primary">
+                      Contact Us
+                    </Button>
+                  </Link>
+                </Grid>
+              </Grid>
             </div>
           </Container>
+        
+          
         </div>
         <Container className={classes.cardGrid} maxWidth="md">
           {/* End hero unit */}
-          <Grid container spacing={4}>
-            {cards.map(card => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
+          <Grid container spacing={2}>
+           
+              <Grid item  xs={1000} sm={6} md={4}>
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
@@ -104,6 +136,44 @@ export default function Home() {
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant="h5" component="h2">
+                   Email Address
+                    </Typography>
+                    <Typography>
+                        elearning@my.slt.lk
+                    </Typography>
+                  </CardContent>
+                  
+                </Card>
+              </Grid>
+              <Grid item  xs={1000} sm={6} md={4}>
+                <Card className={classes.card}>
+                  <CardMedia
+                    className={classes.cardMedia}
+                    image="https://source.unsplash.com/random"
+                    title="Image title"
+                  />
+                  <CardContent className={classes.cardContent}>
+                    <Typography gutterBottom variant="h5" component="h2">
+                   
+                     Address 
+                    </Typography>
+                    <Typography>
+                    900/ 30 road colombo 10 
+                    </Typography>
+                  </CardContent>
+                  
+                </Card>
+              </Grid>
+              <Grid item  xs={1000} sm={6} md={4}>
+                <Card className={classes.card}>
+                  <CardMedia
+                    className={classes.cardMedia}
+                    image="https://source.unsplash.com/random"
+                    title="Image title"
+                  />
+                  <CardContent className={classes.cardContent}>
+                    <Typography gutterBottom variant="h5" component="h2">
+                   
                     Education
                     </Typography>
                     <Typography>
@@ -113,33 +183,10 @@ export default function Home() {
                   
                 </Card>
               </Grid>
-            ))}
+          
+          
           </Grid>
-        </Container>
-        <Container className={classes.cardGrid} maxWidth="md">
-          {/* End hero unit */}
-          <Grid container spacing={4}>
-            {cards.map(card => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
-                <Card className={classes.card}>
-                  <CardMedia
-                    className={classes.cardMedia}
-                    image="https://source.unsplash.com/random"
-                    title="Image title"
-                  />
-                  <CardContent className={classes.cardContent}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                    Elearning Online
-                    </Typography>
-                    <Typography>
-                    We provide the platform and the tools to teach and learn whatever that is in demand to make a better tomorrow.
-                    </Typography>
-                  </CardContent>
-                  
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
+          
         </Container>
       </main>
       {/* Footer */}
