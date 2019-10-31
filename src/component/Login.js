@@ -65,7 +65,7 @@ class Login extends Component {
       NotificationManager.info("Welcome :)", "Success");
       window.location='/StudentDashboard';
     }).catch((e)=>{
-      NotificationManager.error(e.message, "Server failed");
+      NotificationManager.error(e.message, "Invalid Username and Password");
            
     });
   }
