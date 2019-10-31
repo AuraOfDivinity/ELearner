@@ -76,7 +76,7 @@ export default function Home() {
               color="textPrimary"
               gutterBottom
             >
-              E-learner
+             Contact Us 
             </Typography>
             <Typography
               variant="h5"
@@ -84,14 +84,14 @@ export default function Home() {
               color="textSecondary"
               paragraph
             >
-              Welcome to Elearner web site here are some courses available in
-              our site. Please login to start courses.
+              සම්බන්ද වෙන්න
             </Typography>
+           
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justify="center">
                 <Grid item>
                   <Link to="/SignUp">
-                    <Button variant="contained" color="primary">
+                    <Button variant="outlined" color="primary">
                       Sign Up
                     </Button>
                   </Link>
@@ -112,7 +112,7 @@ export default function Home() {
                 </Grid>
                 <Grid item>
                   <Link to="/contactus">
-                    <Button variant="outlined" color="primary">
+                    <Button variant="contained" color="primary">
                       Contact Us
                     </Button>
                   </Link>
@@ -120,12 +120,14 @@ export default function Home() {
               </Grid>
             </div>
           </Container>
+        
+          
         </div>
         <Container className={classes.cardGrid} maxWidth="md">
           {/* End hero unit */}
-          <Grid container spacing={4}>
-            {cards.map(card => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
+          <Grid container spacing={2}>
+           
+              <Grid item  xs={1000} sm={6} md={4}>
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
@@ -134,31 +136,63 @@ export default function Home() {
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      Heading
+                   Email Address
                     </Typography>
                     <Typography>
-                      This is a media card. You can use this section to describe
-                      the content.
+                        elearning@my.slt.lk
                     </Typography>
                   </CardContent>
-                  <CardActions>
-                    <Button size="small" color="primary">
-                      View
-                    </Button>
-                    <Button size="small" color="primary">
-                      Edit
-                    </Button>
-                  </CardActions>
+                  
                 </Card>
               </Grid>
-            ))}
+              <Grid item  xs={1000} sm={6} md={4}>
+                <Card className={classes.card}>
+                  <CardMedia
+                    className={classes.cardMedia}
+                    image="https://source.unsplash.com/random"
+                    title="Image title"
+                  />
+                  <CardContent className={classes.cardContent}>
+                    <Typography gutterBottom variant="h5" component="h2">
+                   
+                     Address 
+                    </Typography>
+                    <Typography>
+                    900/ 30 road colombo 10 
+                    </Typography>
+                  </CardContent>
+                  
+                </Card>
+              </Grid>
+              <Grid item  xs={1000} sm={6} md={4}>
+                <Card className={classes.card}>
+                  <CardMedia
+                    className={classes.cardMedia}
+                    image="https://source.unsplash.com/random"
+                    title="Image title"
+                  />
+                  <CardContent className={classes.cardContent}>
+                    <Typography gutterBottom variant="h5" component="h2">
+                   
+                    Education
+                    </Typography>
+                    <Typography>
+                    To provide access to the wealth of knowledge embedded in the extraordinary minds of each other.
+                    </Typography>
+                  </CardContent>
+                  
+                </Card>
+              </Grid>
+          
+          
           </Grid>
+          
         </Container>
       </main>
       {/* Footer */}
       <footer className={classes.footer}>
         <Typography variant="h6" align="center" gutterBottom>
-          Footer
+         Elearning
         </Typography>
         <Typography
           variant="subtitle1"
@@ -166,7 +200,7 @@ export default function Home() {
           color="textSecondary"
           component="p"
         >
-          Something here to give the footer a purpose!
+      Team Exception
         </Typography>
         <Copyright />
       </footer>

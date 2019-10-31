@@ -6,7 +6,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
-import Link from "@material-ui/core/Link";
+import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
@@ -59,22 +59,27 @@ class Login extends Component {
   };
   onSumbit = event => {
     event.preventDefault();
-    firebase.auth().signInWithEmailAndPassword(this.state.email,this.state.password).then((res) => {
-      localStorage.setItem('uid',res.user.uid);
-      //redirect
-      NotificationManager.info("Welcome :)", "Success");
-      window.location='/StudentDashboard';
-    }).catch((e)=>{
-      NotificationManager.error(e.message, "Invalid Username and Password");
-           
-    });
-  }
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(this.state.email, this.state.password)
+      .then(res => {
+        localStorage.setItem("uid", res.user.uid);
+        //redirect
+        NotificationManager.info("Welcome :)", "Success");
+        window.location = "/StudentDashboard";
+      })
+      .catch(e => {
+        NotificationManager.error(e.message, "Invalid Username and Password");
+      });
+  };
 
   render() {
     const classes = useStyles;
     return (
       <Container component="main" maxWidth="xs">
         <CssBaseline />
+        <br />
+        <br />
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
