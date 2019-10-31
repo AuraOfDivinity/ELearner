@@ -46,4 +46,13 @@ router.delete('/:course/:id', (req, res) => {
     });
 });
 
+router.get('/:course/:id', (req, res) => {
+    firebaseKey.doc(req.params.course).collection('unitsDetails').doc(req.params.id).get().then((data) => {
+        if(data.data() == null) res.status(404).send('Data not Found')
+        res.send(data.data());
+    }).catch((e) => {
+        res.status(400).send(e);
+    });
+});
+
 module.exports = router;

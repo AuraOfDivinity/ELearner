@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const admin = require("firebase-admin");
+const firebaseKey = admin.firestore().collection('users');
 
 router.get('/', (req, res) => {
 
@@ -15,8 +16,9 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-    admin.auth().getUser(req.params.id).then((userData) => {
-        res.send(userData.toJSON());
+    firebaseKey.doc(req.params.id).get().then(data=>{
+        if(data.data() == null) res.status(404).send('Data not Found')
+        res.send(data.data());
     }).catch((err) => {
         res.status(404).send(err);
     })
