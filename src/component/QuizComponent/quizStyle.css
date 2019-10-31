@@ -1,0 +1,31 @@
+.App {
+  font-family: "Lato", sans-serif;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  margin-top: 30px;
+}
+
+.result {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  margin-top: 30px;
+}
+
+.options {
+  cursor: pointer;
+  border: 2px solid black;
+  padding: 10px;
+}
+
+.selected {
+  background: linear-gradient(to right, #74ebd5, #acb6e5) !important;
+}
+
+ul {
+  list-style-type: none;
+}
