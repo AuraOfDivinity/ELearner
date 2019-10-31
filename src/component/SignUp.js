@@ -12,6 +12,7 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import axios from "axios";
 
 const useStyles = makeStyles(theme => ({
   "@global": {
@@ -61,6 +62,19 @@ class SignUp extends React.Component {
   onChangePassword = event => {
     this.setState({ password: event.target.value });
   };
+
+  onSubmit = (event) =>{
+    event.preventDefault();
+    axios.post('http://localhost:5000/api/user', {
+      email : this.state.email,password : this.state.password,username : this.state.firstName+' '+this.state.secondName
+    })
+    .then(response=> {
+      console.log(response);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+  }
 
   render() {
     const classes = useStyles;
@@ -137,7 +151,8 @@ class SignUp extends React.Component {
                 />
               </Grid>
             </Grid>
-            <Button
+            <Button 
+              onClick={this.onSumbit}
               type="submit"
               fullWidth
               variant="contained"
