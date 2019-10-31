@@ -20,3 +20,11 @@
 .App-link {
   color: #09d3ac;
 }
+
+a {
+  color: #fff;
+}
+a:hover {
+  color: #fff;
+  text-decoration: none;
+}
