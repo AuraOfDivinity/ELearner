@@ -93,7 +93,12 @@ export default function Nav() {
               E-Learning Portal
             </Link>
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Link to="/SignUp">
+            <Button color="inherit">Sign Up</Button>
+          </Link>
+          <Link to="Login">
+            <Button color="inherit">Login</Button>
+          </Link>
         </Toolbar>
       </AppBar>
     </div>
