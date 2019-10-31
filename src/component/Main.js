@@ -18,6 +18,7 @@ import inputform from "./inputform";
 const Main = () => (
   <main>
     <Switch>
+      <Route exact path="/AllCourses" component={AllCourses} />
       <Route exact path="/" component={Home} />
       <Route exact path="/SignUp" component={SignUp} />
       <Route exact path="/Login" component={Login} />
