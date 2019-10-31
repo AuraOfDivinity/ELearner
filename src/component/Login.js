@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Redirect } from 'react-router-dom'
+import { Redirect } from "react-router-dom";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -42,30 +42,33 @@ const useStyles = makeStyles(theme => ({
 }));
 
 class Login extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
-      password: ''
+      email: "",
+      password: ""
     };
   }
 
-  onChangeEmail = (event) => {
+  onChangeEmail = event => {
     this.setState({ email: event.target.value });
-  }
-  onChangePassword = (event) => {
+  };
+  onChangePassword = event => {
     this.setState({ password: event.target.value });
-  }
-  onSumbit = (event) => {
+  };
+  onSumbit = event => {
     event.preventDefault();
-    firebase.auth().signInWithEmailAndPassword(this.state.email,this.state.password).then((res) => {
-      localStorage.setItem('uid',res.user.uid);
-      //redirect
-    }).catch((e)=>{
-      alert(e);
-    });
-  }
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(this.state.email, this.state.password)
+      .then(res => {
+        localStorage.setItem("uid", res.user.uid);
+        //redirect
+      })
+      .catch(e => {
+        alert(e);
+      });
+  };
 
   render() {
     const classes = useStyles;
@@ -78,9 +81,11 @@ class Login extends Component {
           </Avatar>
           <Typography component="h1" variant="h5">
             Login
-        </Typography>
+          </Typography>
           <form className={classes.form} noValidate>
-            <TextField value={this.state.email} onChange={this.onChangeEmail.bind(this)}
+            <TextField
+              value={this.state.email}
+              onChange={this.onChangeEmail.bind(this)}
               variant="outlined"
               margin="normal"
               required
@@ -91,7 +96,9 @@ class Login extends Component {
               autoComplete="email"
               autoFocus
             />
-            <TextField value={this.state.password} onChange={this.onChangePassword.bind(this)}
+            <TextField
+              value={this.state.password}
+              onChange={this.onChangePassword.bind(this)}
               variant="outlined"
               margin="normal"
               required
@@ -106,7 +113,8 @@ class Login extends Component {
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
-            <Button onClick={this.onSumbit.bind(this)}
+            <Button
+              onClick={this.onSumbit.bind(this)}
               type="submit"
               fullWidth
               variant="contained"
@@ -114,12 +122,12 @@ class Login extends Component {
               className={classes.submit}
             >
               Login
-          </Button>
+            </Button>
             <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">
                   Forgot password?
-              </Link>
+                </Link>
               </Grid>
               <Grid item>
                 <Link href="#" variant="body2">
@@ -134,5 +142,3 @@ class Login extends Component {
     );
   }
 }
-
-export default Login;
