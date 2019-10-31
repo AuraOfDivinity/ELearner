@@ -15,6 +15,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import firebase from "firebase";
 import axios from "axios";
+import { NotificationManager } from "react-notifications";
 
 const useStyles = makeStyles(theme => ({
   "@global": {
@@ -58,17 +59,15 @@ class Login extends Component {
   };
   onSumbit = event => {
     event.preventDefault();
-    firebase
-      .auth()
-      .signInWithEmailAndPassword(this.state.email, this.state.password)
-      .then(res => {
-        localStorage.setItem("uid", res.user.uid);
-        //redirect
-      })
-      .catch(e => {
-        alert(e);
-      });
-  };
+      NotificationManager.info("Welcome :)", "Success");
+      window.location='/';
+      //redirect
+      localStorage.setItem('uid',res.user.uid);
+    firebase.auth().signInWithEmailAndPassword(this.state.email,this.state.password).then((res) => {
+      alert(e);
+    });
+  }
+    }).catch((e)=>{
 
   render() {
     const classes = useStyles;
