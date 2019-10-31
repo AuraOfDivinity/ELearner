@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const admin = require("firebase-admin");
-const firebaseKey = admin.firestore();
+const firebaseKey = admin.firestore().collection('quizes');
 
 router.get('/:courseid/:unitid', (req, res) => {
 
     const questions = [];
 
-    firebaseKey.collection(req.params.courseid/req.params.unitid).get().then(data=>{
+    firebaseKey.doc(req.params.courseid).collection(req.params.unitid).get().then(data=>{
         data.forEach(snap=>{
             questions.push(snap.data());
         });
@@ -29,9 +29,13 @@ router.post('/:courseid/:unitid',(req,res)=>{
 
     if( (question || ans1 || ans2 || ans3 || ans4 || answer || explain) == null) res.status(400).send('missing body reqirements');
 
-    const key = firebaseKey.collection(req.params.courseid/req.params.unitid);
+    const key = firebaseKey.doc(req.params.courseid).collection(req.params.unitid).doc();
 
-    key.doc()
+    key.create({question,answer,explain,ans1,ans2,ans3,ans4}).then(()=>{
+            res.send('data added!');
+    }).catch(e=>{
+        res.status(400).send('Bad request');
+    });
 });
 
 

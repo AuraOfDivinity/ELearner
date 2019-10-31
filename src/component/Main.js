@@ -13,6 +13,7 @@ import AllCourses from "./CourseDetails/AllCourses";
 import AddQuestion from "./CourseDetails/AddQuestion";
 import CourseProfile from "./CourseDetails/CourseProfile";
 import AddCourse from "./CourseDetails/AddCourse";
+import inputform from "./inputform";
 
 const Main = () => (
   <main>
@@ -26,7 +27,7 @@ const Main = () => (
       <Route exact path="/admindash" component={AdminDashboard} />
       <Route exact path="/aboutus" component={Aboutus} />
       <Route exact path="/contactus" component={Contactus} />
-      <Route exact path="/AllCourses" component={AllCourses} />
+      <Route exact path="/inputform" component={inputform} />
       <Route exact path="/AddCourse" component={AddCourse} />
       <Route exact path="/AddQuestion" component={AddQuestion} />
       <Route exact path="/CourseProfile" component={CourseProfile} />
