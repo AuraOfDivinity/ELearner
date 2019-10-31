@@ -41,6 +41,7 @@ class CourseDetails extends Component {
           <TextField
             required
             id="courseName"
+            onChange={val => localStorage.setItem("courseName", val)}
             name="courseName"
             label="Course Name"
             fullWidth
@@ -50,6 +51,7 @@ class CourseDetails extends Component {
         <Grid item xs={12} sm={6}>
           <TextField 
             required
+            onChange={val => localStorage.setItem("courseId", val)}
             id="courseId"
             name="Course Id"
             label="Course ID"
