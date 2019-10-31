@@ -142,9 +142,9 @@ export default function Home() {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button size="small" color="primary">
+                   <Link to="/AddCourse" ><Button size="small" color="primary">
                       View
-                    </Button>
+                    </Button></Link>
                     <Button size="small" color="primary">
                       Edit
                     </Button>
