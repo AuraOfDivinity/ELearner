@@ -31,7 +31,7 @@ router.post('/', (req, res) => {
         email, password
     }).then((user) => {
         admin.firestore().collection('users').doc(user.uid).create({
-            username
+            username,usertype:'student'
         }).then(() => {
             res.send(user.toJSON());
         }).catch((e) => {
