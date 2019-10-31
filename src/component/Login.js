@@ -63,6 +63,29 @@ class Login extends Component {
       .auth()
       .signInWithEmailAndPassword(this.state.email, this.state.password)
       .then(res => {
+<<<<<<< HEAD
+        axios
+          .get("http://localhost:5000/api/user/" + res.user.uid)
+          .then(response => {
+            localStorage.setItem("uid", res.user.uid);
+            switch (response.data.usertype) {
+              case "student":
+                NotificationManager.info("Welcome :)", "Success");
+                window.location = "/StudentDashboard";
+                break;
+              case "admin":
+                NotificationManager.info("Welcome :)", "Success");
+                window.location = "/admindash";
+                break;
+              case "moderator":
+                NotificationManager.info("Welcome :)", "Success");
+                window.location = "/AllCourses";
+                break;
+              default:
+                NotificationManager.error("Api error !");
+            }
+          });
+=======
         axios.get('http://localhost:5000/api/user/' + res.user.uid).then(response => {
           localStorage.setItem('uid',res.user.uid);
           switch (response.data.usertype) {
@@ -81,6 +104,7 @@ class Login extends Component {
             default: NotificationManager.error("Api error !");
           }
         });
+>>>>>>> 1fb338f3ea06e677c2c770ea44f6d57323af3918
       })
       .catch(e => {
         NotificationManager.error(e.message, "Invalid Username and Password");
