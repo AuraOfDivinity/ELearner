@@ -149,9 +149,9 @@ class AddQuestions extends React.Component {
                   variant="outlined"
                   required
                   fullWidth
-                  id="email"
-                  label="Email Address"
-                  name="email"
+                  id="ans4"
+                  label="Answer 4"
+                  name="ans4"
                   autoComplete="email"
                   onChange={this.onChangeAns4}
                 />
