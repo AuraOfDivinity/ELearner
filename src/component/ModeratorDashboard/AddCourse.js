@@ -9,7 +9,8 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import CourseDetails from "./CourseDetails";
 import UnitForm from "./UnitForm";
-import Review from "./Review";
+import UnitQuestions from "./UnitQuestions";
+import UnitFinal from "./UnitFinal";
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -52,7 +53,7 @@ const steps = [
   "Enter Course Details",
   "Enter Modules",
   "Enter Module Questions",
-  "Enter Final Questions"
+  "Confirmation"
 ];
 
 function getStepContent(step) {
@@ -62,9 +63,9 @@ function getStepContent(step) {
     case 1:
       return <UnitForm />;
     case 2:
-      return <Review />;
+      return <UnitQuestions />;
     case 3:
-      return <Review />;
+      return <UnitFinal />;
     default:
       throw new Error("Unknown step");
   }
@@ -106,9 +107,7 @@ const handleBack = () => {
                   Thank you for your order.
                 </Typography>
                 <Typography variant="subtitle1">
-                  Your order number is #2001539. We have emailed your order
-                  confirmation, and will send you an update when your order has
-                  shipped.
+                  Course successfully added!
                 </Typography>
               </React.Fragment>
             ) : (

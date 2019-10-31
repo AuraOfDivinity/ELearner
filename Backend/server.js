@@ -24,6 +24,7 @@ app.get('/',(req,res) => res.send('API Running'))
 //define Route 
 app.use('/api/user',require('./routes/api/user'))
 app.use('/api/course',require('./routes/api/courses'))
+app.use('/api/units',require('./routes/api/units'))
 
 
 //if port is taken changes to 5000

@@ -3,38 +3,34 @@ import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 
-export default function UnitForm() {
+export default function CheckboxTextInput() {
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
-        Units
+        Answers
       </Typography>
       <Grid container spacing={3}>
-        <Grid item xs={12}>
+        <Grid item md={12}>
           <TextField
             required
-            id="unit1"
-            label="Unit 1 Name"
+            id="unit1a1"
+            label="Answer 1"
             fullWidth
-            onChange={val => localStorage.setItem("unit1", val)}
+            onChange={val => localStorage.setItem("unit1a1 ", val)}
           />
-        </Grid>
-        <Grid item xs={12}>
           <TextField
             required
-            id="unit2"
-            label="Unit 2"
+            id="unit1a2"
+            label="Answer 2"
             fullWidth
-            onChange={val => localStorage.setItem("unit2", val)}
+            onChange={val => localStorage.setItem("unit1a2", val)}
           />
-        </Grid>
-        <Grid item xs={12}>
           <TextField
             required
-            id="unit3"
-            label="Unit 3"
+            id="unit1a3"
+            label="Answer 3"
             fullWidth
-            onChange={val => localStorage.setItem("unit3", val)}
+            onChange={val => localStorage.setItem("unit1a3", val)}
           />
         </Grid>
       </Grid>
