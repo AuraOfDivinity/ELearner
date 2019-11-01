@@ -36,7 +36,7 @@ export default function Nav() {
           <Link to="/">
               <Button color="inherit">Home</Button>
           </Link>
-          <Link to ="/ModDashboard"> 
+          <Link to ="/AllCourses"> 
               <Button color="inherit">Courses</Button>
           </Link>
             <Button color="inherit" onClick={()=>{

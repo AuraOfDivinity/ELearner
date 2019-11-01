@@ -183,7 +183,7 @@ addingBook(){
                 color="textPrimary"
                 gutterBottom
               >
-                All Available Courses
+                All Available Users
               </Typography>
             </Container>
           </div>

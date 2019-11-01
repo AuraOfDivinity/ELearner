@@ -39,7 +39,7 @@ export default function Nav() {
           <Link to ="/admindash">
               <Button color="inherit">Users</Button>
           </Link>
-          <Link to ="/ModDashboard">
+          <Link to ="/AllCourses">
               <Button color="inherit">Edit courses</Button>
           </Link>
             <Button color="inherit" onClick={()=>{

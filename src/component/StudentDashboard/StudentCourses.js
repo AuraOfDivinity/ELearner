@@ -59,14 +59,14 @@ class StudentCourses extends React.Component {
 
   componentDidMount(){
     const uid = localStorage.getItem('uid');
+    if(uid == null)window.location = '/Login';
     console.log(uid);
     Axios.get('http://localhost:5000/api/user/' + uid).then(response => {
       if (response.status != 200) window.location = '/Login';
-        this.setState({
+       const enrol =response.data.enrollments;
+      this.setState({
           courses:response.data.enrollments
         });
-    }).catch(e=>{
-      window.location = '/Login';
     })
   }
 
@@ -122,7 +122,9 @@ class StudentCourses extends React.Component {
                 </Grid>
               ))}
             </Grid>
+            
           </Container>
+          
         </main>
       </React.Fragment>
     );
