@@ -15,7 +15,8 @@ import CourseProfile from "./CourseDetails/CourseProfile";
 import AddCourse from "./CourseDetails/AddCourse";
 import inputform from "./inputform";
 import StudentCourses from "./StudentDashboard/StudentCourses";
-import StudentCourseDetails from './StudentDashboard/StudentCourseDetails'
+import StudentCourseDetails from './StudentDashboard/StudentCourseDetails';
+import AddUnit from './UnitComponent/AddUnit'
 
 const Main = () => (
   <main>
@@ -32,6 +33,7 @@ const Main = () => (
       <Route exact path="/contactus" component={Contactus} />
       <Route exact path="/inputform" component={inputform} />
       <Route exact path="/AddCourse" component={AddCourse} />
+      <Route exact path="/AddUnit/:courseid" component={AddUnit} />
       <Route exact path="/AddQuestion/:courseid/:unitid" component={AddQuestion} />
       <Route exact path="/CourseProfile/:id" component={CourseProfile} />
       <Route exact path="/StudentCourses" component={StudentCourses} />

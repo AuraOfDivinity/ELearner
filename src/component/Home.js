@@ -16,9 +16,6 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>
       {new Date().getFullYear()}
     </Typography>
   );
@@ -124,8 +121,7 @@ export default function Home() {
                       AI Course
                     </Typography>
                     <Typography>
-                      This is a media card. You can use this section to describe
-                      the content.
+                      Explore more about AI with us.
                     </Typography>
                   </CardContent>
                  
@@ -144,8 +140,7 @@ export default function Home() {
                       Chemistry
                     </Typography>
                     <Typography>
-                      This is a media card. You can use this section to describe
-                      the content.
+                      Learn everything about Chemistry.
                     </Typography>
                   </CardContent>
                  
@@ -163,8 +158,7 @@ export default function Home() {
                       Western Music
                     </Typography>
                     <Typography>
-                      This is a media card. You can use this section to describe
-                      the content.
+                      Music makes you complete, Join and feel the rythem.
                     </Typography>
                   </CardContent>
                 
