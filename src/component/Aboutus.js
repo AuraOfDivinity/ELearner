@@ -90,20 +90,6 @@ export default function Home() {
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justify="center">
                 <Grid item>
-                  <Link to="/SignUp">
-                    <Button variant="outlined" color="primary">
-                      Sign Up
-                    </Button>
-                  </Link>
-                </Grid>
-                <Grid item>
-                  <Link to="/Login">
-                    <Button variant="outlined" color="primary">
-                      Login
-                    </Button>
-                  </Link>
-                </Grid>
-                <Grid item>
                   <Link to="/aboutus">
                     <Button variant="contained" color="primary">
                       About Us
