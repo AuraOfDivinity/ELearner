@@ -45,7 +45,7 @@ const useStyles = makeStyles(theme => ({
 
 const courses = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-class StudentCourses extends React.Component {
+class MyCourses extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -53,10 +53,7 @@ class StudentCourses extends React.Component {
     };
   }
 
-  handleRegisterClick = () => {
-    //Redirect to CourseProfile page
-    //TODO
-  };
+  handleRegisterClick = () => {};
 
   render() {
     const classes = useStyles;
@@ -75,7 +72,7 @@ class StudentCourses extends React.Component {
                 color="textPrimary"
                 gutterBottom
               >
-                All Available Courses
+                My Available Courses
               </Typography>
             </Container>
           </div>
@@ -103,7 +100,7 @@ class StudentCourses extends React.Component {
                           color="primary"
                           onClick={this.handleRegisterClick}
                         >
-                          View Course
+                          View Content
                         </Button>
                       </Link>
                     </CardActions>
@@ -118,4 +115,4 @@ class StudentCourses extends React.Component {
   }
 }
 
-export default StudentCourses;
+export default StudentDashboard;

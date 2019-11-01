@@ -14,6 +14,7 @@ import AddQuestion from "./CourseDetails/AddQuestion";
 import CourseProfile from "./CourseDetails/CourseProfile";
 import AddCourse from "./CourseDetails/AddCourse";
 import inputform from "./inputform";
+import StudentCourses from "./StudentDashboard/StudentCourses";
 
 const Main = () => (
   <main>
@@ -32,6 +33,7 @@ const Main = () => (
       <Route exact path="/AddCourse" component={AddCourse} />
       <Route exact path="/AddQuestion" component={AddQuestion} />
       <Route exact path="/CourseProfile" component={CourseProfile} />
+      <Route exact path="/StudentCourses" component={StudentCourses} />
     </Switch>
   </main>
 );
