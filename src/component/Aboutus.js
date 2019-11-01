@@ -117,7 +117,7 @@ export default function Home() {
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
-                    image="https://source.unsplash.com/random"
+                    image="https://www.nebraskapta.org/s/cc_images/teaserbox_954157418.jpg?t=1538582346"
                     title="Image title"
                   />
                   <CardContent className={classes.cardContent}>
@@ -135,7 +135,7 @@ export default function Home() {
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
-                    image="https://source.unsplash.com/random"
+                    image="https://www.datocms-assets.com/7756/1555405528-achievementcv.jpg"
                     title="Image title"
                   />
                   <CardContent className={classes.cardContent}>
@@ -154,7 +154,7 @@ export default function Home() {
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
-                    image="https://source.unsplash.com/random"
+                    image="http://www.ngopulse.org/sites/default/files/styles/article-top-image-w320/public/image/images/student-education.jpg?itok=UtL0WKTG"
                     title="Image title"
                   />
                   <CardContent className={classes.cardContent}>
