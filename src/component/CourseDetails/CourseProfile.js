@@ -75,7 +75,7 @@ class CourseProfile extends React.Component {
                     color="primary"
                     style={{ margin: "10px" }}
                   >
-                    Next Unit
+                    Add Question
                     </Button>
                 </Link>
                 <Button
@@ -84,12 +84,18 @@ class CourseProfile extends React.Component {
                   onClick={() => this.handleDeleteClick(currentUnit.unitid)}
                   style={{ margin: "10px" }}
                 >
-                  Previous Unit
+                  Delete Unit
                   </Button>
-                  <MainQuizComponent courseId={this.state.courseid} unitId={currentUnit.unitid}/>
               </div>
             );
           })}
+          <div style={{margin: 'auto'}}>
+              <Link to={`./AddUnit/${this.state.courseid}`}>
+          <Button size="large" color="primary" variant="contained">
+                Add Unit
+          </Button>
+          </Link>
+          </div>
         </CardContent>
         
       </Card>
