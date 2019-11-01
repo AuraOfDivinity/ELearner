@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const admin = require("firebase-admin");
-const firebaseKey = admin.firestore();
+const firebaseKey = admin.firestore().collection('quizes');
 
 router.get('/:courseid/:unitid', (req, res) => {
 
     const questions = [];
 
-    firebaseKey.collection(req.params.courseid/req.params.unitid).get().then(data=>{
+    firebaseKey.doc(req.params.courseid).collection(req.params.unitid).get().then(data=>{
         data.forEach(snap=>{
             questions.push(snap.data());
         });
@@ -27,11 +27,16 @@ router.post('/:courseid/:unitid',(req,res)=>{
     const answer = req.body.answer;
     const explain = req.body.explain;
 
-    if( (question || ans1 || ans2 || ans3 || ans4 || answer || explain) == null) res.status(400).send('missing body reqirements');
-
-    const key = firebaseKey.collection(req.params.courseid/req.params.unitid);
-
-    key.doc()
+    if( question == null || ans1 == null || ans2 == null || ans3 == null || ans4 == null || answer == null || explain == null 
+        || question == '' || ans1 == '' || ans2 == '' || ans3 == '' || ans4 == '' || answer == '' || explain == ''){
+            res.status(400).send('missing body reqirements');
+            return;
+    }
+    firebaseKey.doc(req.params.courseid).collection(req.params.unitid).add({question,answer,explain,ans1,ans2,ans3,ans4}).then(()=>{
+            res.send('data added!');
+    }).catch(e=>{
+        res.status(400).send('Bad request');
+    });
 });
 
 

@@ -7,6 +7,7 @@ import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Title from "../Title";
+import Axios from "axios";
 // Generate Order Data
 function createData(id, date, name, shipTo, paymentMethod, amount) {
   return { id, date, name, shipTo, paymentMethod, amount };
@@ -69,40 +70,50 @@ class AdminCourses extends Component {
       password: ""
     };
   }
-  render(){
-  const classes = useStyles;
-  return (
-    <React.Fragment>
-      <Title>My Courses</Title>
-      <Table size="small">
-        <TableHead>
-          <TableRow>
-            <TableCell>Subscribed Date</TableCell>
-            <TableCell>Name</TableCell>
-            <TableCell>Category</TableCell>
-            <TableCell>Payment Method</TableCell>
-            <TableCell align="right">Paid Amount</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map(row => (
-            <TableRow key={row.id}>
-              <TableCell>
-                <Link to="/Unit" style={{ color: "black" }}>
-                  {row.date}
-                </Link>
-              </TableCell>
-              <TableCell>{row.name}</TableCell>
-              <TableCell>{row.shipTo}</TableCell>
-              <TableCell>{row.paymentMethod}</TableCell>
-              <TableCell align="right">{row.amount}</TableCell>
+
+  componentDidMount(){
+    const uid = localStorage.getItem('uid');
+    console.log(uid);
+    Axios.get('http://localhost:5000/api/user/' + uid).then(response => {
+      if (response.status != 200) window.location = '/Login';
+    }).catch(e=>{
+      window.location = '/Login';
+    })
+  }
+  render() {
+    const classes = useStyles;
+    return (
+      <React.Fragment>
+        <Title>My Courses</Title>
+        <Table size="small">
+          <TableHead>
+            <TableRow>
+              <TableCell>Subscribed Date</TableCell>
+              <TableCell>Name</TableCell>
+              <TableCell>Category</TableCell>
+              <TableCell>Payment Method</TableCell>
+              <TableCell align="right">Paid Amount</TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </React.Fragment>
-  );
-}
+          </TableHead>
+          <TableBody>
+            {rows.map(row => (
+              <TableRow key={row.id}>
+                <TableCell>
+                  <Link to="/Unit" style={{ color: "black" }}>
+                    {row.date}
+                  </Link>
+                </TableCell>
+                <TableCell>{row.name}</TableCell>
+                <TableCell>{row.shipTo}</TableCell>
+                <TableCell>{row.paymentMethod}</TableCell>
+                <TableCell align="right">{row.amount}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </React.Fragment>
+    );
+  }
 }
 
 export default AdminCourses;

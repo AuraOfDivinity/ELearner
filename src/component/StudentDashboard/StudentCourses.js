@@ -1,97 +1,121 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Button from "@material-ui/core/Button";
+import Card from "@material-ui/core/Card";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
-import Title from "../Title";
-// Generate Order Data
-function createData(id, date, name, shipTo, paymentMethod, amount) {
-  return { id, date, name, shipTo, paymentMethod, amount };
-}
-
-const rows = [
-  createData(
-    0,
-    "16 Mar, 2019",
-    "Programming",
-    "Tupelo, MS",
-    "VISA ⠀•••• 3719",
-    312.44
-  ),
-  createData(
-    1,
-    "16 Mar, 2019",
-    "Paul McCartney",
-    "London, UK",
-    "VISA ⠀•••• 2574",
-    866.99
-  ),
-  createData(
-    2,
-    "16 Mar, 2019",
-    "Tom Scholz",
-    "Boston, MA",
-    "MC ⠀•••• 1253",
-    100.81
-  ),
-  createData(
-    3,
-    "16 Mar, 2019",
-    "Michael Jackson",
-    "Gary, IN",
-    "AMEX ⠀•••• 2000",
-    654.39
-  ),
-  createData(
-    4,
-    "15 Mar, 2019",
-    "Bruce Springsteen",
-    "Long Branch, NJ",
-    "VISA ⠀•••• 5919",
-    212.79
-  )
-];
+import Container from "@material-ui/core/Container";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
-  seeMore: {
-    marginTop: theme.spacing(3)
+  icon: {
+    marginRight: theme.spacing(2)
+  },
+  heroContent: {
+    backgroundColor: theme.palette.background.paper,
+    padding: theme.spacing(8, 0, 6)
+  },
+  heroButtons: {
+    marginTop: theme.spacing(4)
+  },
+  cardGrid: {
+    paddingTop: theme.spacing(8),
+    paddingBottom: theme.spacing(8)
+  },
+  card: {
+    height: "100%",
+    display: "flex",
+    flexDirection: "column"
+  },
+  cardMedia: {
+    paddingTop: "56.25%" // 16:9
+  },
+  cardContent: {
+    flexGrow: 1
+  },
+  footer: {
+    backgroundColor: theme.palette.background.paper,
+    padding: theme.spacing(6)
   }
 }));
 
-export default function StudentCourses() {
-  const classes = useStyles();
-  return (
-    <React.Fragment>
-      <Title>My Courses</Title>
-      <Table size="small">
-        <TableHead>
-          <TableRow>
-            <TableCell>Subscribed Date</TableCell>
-            <TableCell>Name</TableCell>
-            <TableCell>Category</TableCell>
-            <TableCell>Payment Method</TableCell>
-            <TableCell align="right">Paid Amount</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map(row => (
-            <TableRow key={row.id}>
-              <TableCell>
-                <Link to="/Unit" style={{ color: "black" }}>
-                  {row.date}
-                </Link>
-              </TableCell>
-              <TableCell>{row.name}</TableCell>
-              <TableCell>{row.shipTo}</TableCell>
-              <TableCell>{row.paymentMethod}</TableCell>
-              <TableCell align="right">{row.amount}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </React.Fragment>
-  );
+const courses = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+class StudentCourses extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      courses: []
+    };
+  }
+
+  handleRegisterClick = () => {
+    //Redirect to CourseProfile page
+    //TODO
+  };
+
+  render() {
+    const classes = useStyles;
+
+    return (
+      <React.Fragment>
+        <CssBaseline />
+        <main>
+          {/* Hero unit */}
+          <div className={classes.heroContent}>
+            <Container maxWidth="sm">
+              <Typography
+                component="h1"
+                variant="h2"
+                align="center"
+                color="textPrimary"
+                gutterBottom
+              >
+                All Available Courses
+              </Typography>
+            </Container>
+          </div>
+          <Container className={classes.cardGrid} maxWidth="md">
+            {/* End hero unit */}
+            <Grid container spacing={4}>
+              {courses.map(card => (
+                <Grid item key={card} xs={12} sm={6} md={4}>
+                  <Card className={classes.card}>
+                    <CardMedia
+                      className={classes.cardMedia}
+                      image="https://source.unsplash.com/random"
+                      title="Image title"
+                    />
+                    <CardContent className={classes.cardContent}>
+                      <Typography gutterBottom variant="h5" component="h2">
+                        Course Header
+                      </Typography>
+                      <Typography>Course Description</Typography>
+                    </CardContent>
+                    <CardActions>
+                      <Link to="/CourseProfile">
+                        <Button
+                          size="small"
+                          color="primary"
+                          onClick={this.handleRegisterClick}
+                        >
+                          View Course
+                        </Button>
+                      </Link>
+                    </CardActions>
+                  </Card>
+                </Grid>
+              ))}
+            </Grid>
+          </Container>
+        </main>
+      </React.Fragment>
+    );
+  }
 }
+
+export default StudentCourses;

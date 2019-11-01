@@ -6,6 +6,7 @@ import "./quizStyle.css";
 import Card from "@material-ui/core/Card";
 import Button from "@material-ui/core/Button";
 import CardContent from "@material-ui/core/CardContent";
+import Axios from "axios";
 
 class MainQuizComponent extends React.Component {
   constructor(props) {
@@ -33,6 +34,13 @@ class MainQuizComponent extends React.Component {
   };
 
   componentDidMount() {
+    const uid = localStorage.getItem('uid');
+    console.log(uid);
+    Axios.get('http://localhost:5000/api/user/' + uid).then(response => {
+      if (response.status != 200) window.location = '/Login';
+    }).catch(e=>{
+      window.location = '/Login';
+    })
     this.loadQuizData();
   }
   nextQuestionHandler = () => {

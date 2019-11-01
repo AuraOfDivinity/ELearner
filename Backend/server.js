@@ -25,7 +25,7 @@ app.get('/',(req,res) => res.send('API Running'))
 app.use('/api/user',require('./routes/api/user'))
 app.use('/api/course',require('./routes/api/courses'))
 app.use('/api/units',require('./routes/api/units'))
-
+app.use('/api/quiz',require('./routes/api/questions'))
 
 //if port is taken changes to 5000
 const PORT = process.env.PORT || 5000;

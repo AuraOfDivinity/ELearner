@@ -45,7 +45,7 @@ const useStyles = makeStyles(theme => ({
 
 const courses = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-class StudentDashboard extends React.Component {
+class MyCourses extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -72,7 +72,7 @@ class StudentDashboard extends React.Component {
                 color="textPrimary"
                 gutterBottom
               >
-                All Available Courses
+                My Available Courses
               </Typography>
             </Container>
           </div>
@@ -100,7 +100,7 @@ class StudentDashboard extends React.Component {
                           color="primary"
                           onClick={this.handleRegisterClick}
                         >
-                          Register to this course
+                          View Content
                         </Button>
                       </Link>
                     </CardActions>

@@ -7,7 +7,6 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
-import Box from "@material-ui/core/Box";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
@@ -63,18 +62,22 @@ class SignUp extends React.Component {
     this.setState({ password: event.target.value });
   };
 
-  onSubmit = (event) =>{
+  onSubmit = event => {
     event.preventDefault();
-    axios.post('http://localhost:5000/api/user', {
-      email : this.state.email,password : this.state.password,username : this.state.firstName+' '+this.state.secondName
-    })
-    .then(response=> {
-      console.log(response);
-    })
-    .catch(error => {
-      console.log(error);
-    });
-  }
+    axios
+      .post("http://localhost:5000/api/user", {
+        email: this.state.email,
+        password: this.state.password,
+        username: this.state.firstName + " " + this.state.secondName
+      })
+      .then(response => {
+        localStorage.setItem('uid',response.data.uid);
+        window.location = '/Login';
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
 
   render() {
     const classes = useStyles;
@@ -151,8 +154,8 @@ class SignUp extends React.Component {
                 />
               </Grid>
             </Grid>
-            <Button 
-              onClick={this.onSumbit}
+            <Button
+              onClick={this.onSubmit}
               type="submit"
               fullWidth
               variant="contained"
