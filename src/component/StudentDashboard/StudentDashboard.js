@@ -54,7 +54,7 @@ class StudentDashboard extends React.Component {
     };
   }
 
-  handleRegisterClick = () => {};
+
 
   componentDidMount(){
     const uid = localStorage.getItem('uid');
@@ -108,7 +108,7 @@ class StudentDashboard extends React.Component {
                         <Button
                           size="small"
                           color="primary"
-                          onClick={this.handleRegisterClick}
+                          
                         >
                           Register to this course
                         </Button>
