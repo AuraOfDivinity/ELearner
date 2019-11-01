@@ -47,7 +47,7 @@ export default function Nav() {
               <Button color="inherit">Users</Button>
           </Link>
           <Link to ="/ModDashboard">
-              <Button color="inherit">Change to moderator</Button>
+              <Button color="inherit">Edit courses</Button>
           </Link>
           <Link to="/logout">
             <Button color="inherit">Logout</Button>
