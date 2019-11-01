@@ -30,8 +30,8 @@ const Main = () => (
       <Route exact path="/contactus" component={Contactus} />
       <Route exact path="/inputform" component={inputform} />
       <Route exact path="/AddCourse" component={AddCourse} />
-      <Route exact path="/AddQuestion" component={AddQuestion} />
-      <Route exact path="/CourseProfile" component={CourseProfile} />
+      <Route exact path="/AddQuestion/:courseid/:unitid" component={AddQuestion} />
+      <Route exact path="/CourseProfile/:id" component={CourseProfile} />
     </Switch>
   </main>
 );

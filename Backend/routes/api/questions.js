@@ -27,11 +27,12 @@ router.post('/:courseid/:unitid',(req,res)=>{
     const answer = req.body.answer;
     const explain = req.body.explain;
 
-    if( (question || ans1 || ans2 || ans3 || ans4 || answer || explain) == null) res.status(400).send('missing body reqirements');
-
-    const key = firebaseKey.doc(req.params.courseid).collection(req.params.unitid).doc();
-
-    key.create({question,answer,explain,ans1,ans2,ans3,ans4}).then(()=>{
+    if( question == null || ans1 == null || ans2 == null || ans3 == null || ans4 == null || answer == null || explain == null 
+        || question == '' || ans1 == '' || ans2 == '' || ans3 == '' || ans4 == '' || answer == '' || explain == ''){
+            res.status(400).send('missing body reqirements');
+            return;
+    }
+    firebaseKey.doc(req.params.courseid).collection(req.params.unitid).add({question,answer,explain,ans1,ans2,ans3,ans4}).then(()=>{
             res.send('data added!');
     }).catch(e=>{
         res.status(400).send('Bad request');

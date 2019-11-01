@@ -8,6 +8,8 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import Axios from "axios";
+import { NotificationManager } from "react-notifications";
 
 const useStyles = makeStyles(theme => ({
   "@global": {
@@ -44,7 +46,9 @@ class AddQuestions extends React.Component {
       ans3: "",
       ans4: "",
       answer: "",
-      explaination: ""
+      explaination: "",
+      courseid: this.props.match.params.courseid,
+      unitid: this.props.match.params.unitid
     };
   }
 
@@ -80,8 +84,34 @@ class AddQuestions extends React.Component {
     });
   };
 
-  handleSubmit = () => {
-    //TODO
+  componentDidMount() {
+    const uid = localStorage.getItem('uid');
+    console.log(uid);
+    Axios.get('http://localhost:5000/api/user/' + uid).then(response => {
+      if (response.status != 200) window.location = '/Login';
+    }).catch(e=>{
+      window.location = '/Login';
+    })
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    Axios.post('http://localhost:5000/api/quiz/' + this.state.courseid + '/' + this.state.unitid, {
+      question: this.state.question,
+      ans1: this.state.ans1,
+      ans2: this.state.ans2,
+      ans3: this.state.ans3,
+      ans4: this.state.ans4,
+      answer: this.state.answer,
+      explain: this.state.explaination
+    }).then(response => {
+      if (response.status == 200)
+        NotificationManager.info('Question added to the unit successfully !')
+      else
+        NotificationManager.error('Could not add question !')
+    }).catch(e => {
+      NotificationManager.error('Could not add question ! err : ' + e)
+    });
   };
 
   render() {

@@ -7,6 +7,7 @@ import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Title from "../Title";
+import Axios from "axios";
 // Generate Order Data
 function createData(id, date, name, shipTo, paymentMethod, amount) {
   return { id, date, name, shipTo, paymentMethod, amount };
@@ -68,6 +69,16 @@ class AdminCourses extends Component {
       email: "",
       password: ""
     };
+  }
+
+  componentDidMount(){
+    const uid = localStorage.getItem('uid');
+    console.log(uid);
+    Axios.get('http://localhost:5000/api/user/' + uid).then(response => {
+      if (response.status != 200) window.location = '/Login';
+    }).catch(e=>{
+      window.location = '/Login';
+    })
   }
   render() {
     const classes = useStyles;

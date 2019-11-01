@@ -7,6 +7,7 @@ import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
+import firebase from "firebase";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -42,7 +43,10 @@ export default function Nav() {
           </Typography>
           
           <Link to="/logout">
-            <Button color="inherit">Logout</Button>
+            <Button color="inherit" onClick={()=>{
+              localStorage.setItem('uid',null);
+              window.location = '/'
+            }}>Logout</Button>
           </Link>
         </Toolbar>
       </AppBar>

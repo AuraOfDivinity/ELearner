@@ -10,6 +10,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { Link } from "react-router-dom";
+import Axios from "axios";
 
 const useStyles = makeStyles(theme => ({
   icon: {
@@ -43,8 +44,6 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const courses = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
 class AllCourses extends React.Component {
   constructor(props) {
     super(props);
@@ -53,14 +52,33 @@ class AllCourses extends React.Component {
     };
   }
 
-  handleViewClick = () => {
-    //Redirect to CourseProfile page
-    //TODO
+
+  handleDeleteClick = (id) => {
+    Axios.delete('http://localhost:5000/api/course/' + id).then(response => {
+      console.log(response);
+      this.mount();
+    })
   };
 
-  handleDeleteClick = () => {
-    //TODO
-  };
+  mount() {
+    Axios.get('http://localhost:5000/api/course').then(response => {
+      this.setState({
+        courses: response.data
+      })
+      console.log(this.state.courses);
+    });
+  }
+
+  componentDidMount() {
+    const uid = localStorage.getItem('uid');
+    console.log(uid);
+    Axios.get('http://localhost:5000/api/user/' + uid).then(response => {
+      if (response.status != 200) window.location = '/Login';
+    }).catch(e=>{
+      window.location = '/Login';
+    })
+    this.mount();
+  }
 
   render() {
     const classes = useStyles;
@@ -86,7 +104,7 @@ class AllCourses extends React.Component {
           <Container className={classes.cardGrid} maxWidth="md">
             {/* End hero unit */}
             <Grid container spacing={4}>
-              {courses.map(card => (
+              {this.state.courses.map(card => (
                 <Grid item key={card} xs={12} sm={6} md={4}>
                   <Card className={classes.card}>
                     <CardMedia
@@ -96,16 +114,16 @@ class AllCourses extends React.Component {
                     />
                     <CardContent className={classes.cardContent}>
                       <Typography gutterBottom variant="h5" component="h2">
-                        Course Header
+                        {card.data.coursename}
                       </Typography>
-                      <Typography>Course Description</Typography>
+                      <Typography>{card.data.units}</Typography>
                     </CardContent>
                     <CardActions>
-                      <Link to="/CourseProfile">
+                      <Link to={`/CourseProfile/${card.id}`}>
                         <Button
                           size="small"
                           color="primary"
-                          onClick={this.handleViewClick}
+
                         >
                           View Course
                         </Button>
@@ -113,7 +131,7 @@ class AllCourses extends React.Component {
                       <Button
                         size="small"
                         color="danger"
-                        onClick={this.handleDeleteClick}
+                        onClick={() => this.handleDeleteClick(card.id)}
                       >
                         Delete Course
                       </Button>
