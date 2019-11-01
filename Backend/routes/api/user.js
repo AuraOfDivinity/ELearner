@@ -7,12 +7,12 @@ router.get('/', (req, res) => {
 
     const users = [];
 
-    admin.auth().listUsers().then((user) => {
-        user.users.forEach((user) => {
-            users.push(user.toJSON())
+    firebaseKey.get().then(data=>{
+        data.forEach(snap=>{
+            users.push(snap.data());
         });
         res.send(users);
-    });
+    })
 });
 
 router.get('/:id', (req, res) => {
@@ -21,6 +21,30 @@ router.get('/:id', (req, res) => {
         res.send(data.data());
     }).catch((err) => {
         res.status(404).send(err);
+    })
+});
+
+router.post('/:id', (req, res) => {
+    firebaseKey.doc(req.params.id).get().then(data=>{
+        if(data.data() == null) res.status(404).send('Data not Found')
+        let current = data.data();
+        current.usertype = 'moderator';
+        firebaseKey.doc(req.params.id).set(current);
+    }).catch((err) => {
+        res.status(404).send(err);
+    })
+});
+
+router.post('/enroll/:courseid', (req, res) => {
+    const uid = req.body.uid;
+    const entrollments = [];
+    if(uid == null || uid == ''){ res.status(400).send('Data err'); return;}
+    firebaseKey.doc(uid).get().then(data=>{
+        entrollments = data.data.entrollments;
+        entrollments.push(req.params.userid);
+        firebaseKey.doc(uid).set({username:data.data.username,usertype:data.data.usertype,entrollments});
+    }).catch(e=>{
+        res.status(400).send(e); return;
     })
 });
 

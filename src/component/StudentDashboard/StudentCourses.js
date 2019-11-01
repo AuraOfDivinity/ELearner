@@ -10,6 +10,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { Link } from "react-router-dom";
+import Axios from "axios";
 
 const useStyles = makeStyles(theme => ({
   icon: {
@@ -43,8 +44,6 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const courses = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
 class StudentCourses extends React.Component {
   constructor(props) {
     super(props);
@@ -57,6 +56,19 @@ class StudentCourses extends React.Component {
     //Redirect to CourseProfile page
     //TODO
   };
+
+  componentDidMount(){
+    const uid = localStorage.getItem('uid');
+    console.log(uid);
+    Axios.get('http://localhost:5000/api/user/' + uid).then(response => {
+      if (response.status != 200) window.location = '/Login';
+        this.setState({
+          courses:response.data.enrollments
+        });
+    }).catch(e=>{
+      window.location = '/Login';
+    })
+  }
 
   render() {
     const classes = useStyles;
@@ -82,7 +94,7 @@ class StudentCourses extends React.Component {
           <Container className={classes.cardGrid} maxWidth="md">
             {/* End hero unit */}
             <Grid container spacing={4}>
-              {courses.map(card => (
+              {this.state.courses.map(card => (
                 <Grid item key={card} xs={12} sm={6} md={4}>
                   <Card className={classes.card}>
                     <CardMedia
@@ -101,7 +113,6 @@ class StudentCourses extends React.Component {
                         <Button
                           size="small"
                           color="primary"
-                          onClick={this.handleRegisterClick}
                         >
                           View Course
                         </Button>
