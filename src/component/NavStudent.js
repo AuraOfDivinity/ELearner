@@ -44,7 +44,7 @@ export default function Nav() {
               <Button color="inherit">Home</Button>
           </Link>
           <Link to ="/StudentDashboard">
-              <Button color="inherit">Change to moderator</Button>
+              <Button color="inherit">Courses</Button>
           </Link>
             <Button color="inherit" onClick={()=>{
               localStorage.setItem('uid',null);
