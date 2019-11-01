@@ -25,6 +25,15 @@ class CourseDetails extends Component {
       password: ""
     };
 }
+componentDidMount(){
+  const uid = localStorage.getItem('uid');
+  console.log(uid);
+  Axios.get('http://localhost:5000/api/user/' + uid).then(response => {
+    if (response.status != 200) window.location = '/Login';
+  }).catch(e=>{
+    window.location = '/Login';
+  })
+}
 
   render() {
     const classes = useStyles;

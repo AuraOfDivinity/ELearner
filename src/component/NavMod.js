@@ -46,9 +46,10 @@ export default function Nav() {
           <Link to ="/ModDashboard"> 
               <Button color="inherit">Courses</Button>
           </Link>
-          <Link to="/logout">
-            <Button color="inherit">Logout</Button>
-          </Link>
+            <Button color="inherit" onClick={()=>{
+              localStorage.setItem('uid',null);
+              window.location = '/'
+            }}>Logout</Button>
         </Toolbar>
       </AppBar>
     </div>

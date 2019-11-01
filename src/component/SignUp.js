@@ -71,7 +71,8 @@ class SignUp extends React.Component {
         username: this.state.firstName + " " + this.state.secondName
       })
       .then(response => {
-        console.log(response);
+        localStorage.setItem('uid',response.data.uid);
+        window.location = '/Login';
       })
       .catch(error => {
         console.log(error);
@@ -154,7 +155,7 @@ class SignUp extends React.Component {
               </Grid>
             </Grid>
             <Button
-              onClick={this.onSumbit}
+              onClick={this.onSubmit}
               type="submit"
               fullWidth
               variant="contained"
