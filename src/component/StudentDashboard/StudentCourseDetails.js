@@ -6,6 +6,8 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { Link } from "react-router-dom";
+import Axios from "axios";
+import MainQuizComponent from '../QuizComponent/MainQuizComponent'
 
 class StudentCourseDetails extends React.Component {
   constructor(props) {
@@ -17,7 +19,13 @@ class StudentCourseDetails extends React.Component {
   }
 
   componentDidMount() {
-    //TODO fetch units into state
+    const uid = localStorage.getItem('uid');
+    console.log(uid);
+    Axios.get('http://localhost:5000/api/user/' + uid).then(response => {
+      if (response.status != 200) window.location = '/Login';
+    }).catch(e=>{
+      window.location = '/Login';
+    })
   }
 
   render() {
@@ -57,13 +65,16 @@ class StudentCourseDetails extends React.Component {
                     Previous Unit
                   </Button>
                 </div>
+                
               );
             })}
           </CardContent>
         </CardActionArea>
+        <MainQuizComponent></MainQuizComponent>
       </Card>
+      
     );
   }
 }
 
-export default CourseProfile;
+export default StudentCourseDetails;

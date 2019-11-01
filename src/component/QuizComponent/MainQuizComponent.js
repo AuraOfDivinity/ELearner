@@ -18,7 +18,8 @@ class MainQuizComponent extends React.Component {
       score: 0,
       disabled: true,
       isEnd: false,
-      wrongAnswers: []
+      wrongAnswers: [],
+      quiz:[]
     };
   }
 
@@ -26,22 +27,23 @@ class MainQuizComponent extends React.Component {
     // console.log(quizData[0].question)
     this.setState(() => {
       return {
-        questions: quizData[this.state.currentQuestion].question,
-        answer: quizData[this.state.currentQuestion].answer,
-        options: quizData[this.state.currentQuestion].options
+        questions: this.state.quiz[this.state.currentQuestion].question,
+        answer: this.state.quiz[this.state.currentQuestion].answer,
+        options: [this.state.quiz[this.state.currentQuestion].ans1,this.state.quiz[this.state.currentQuestion].ans2,this.state.quiz[this.state.currentQuestion].ans3,this.state.quiz[this.state.currentQuestion].ans4]
       };
     });
   };
 
   componentDidMount() {
-    const uid = localStorage.getItem('uid');
-    console.log(uid);
-    Axios.get('http://localhost:5000/api/user/' + uid).then(response => {
-      if (response.status != 200) window.location = '/Login';
-    }).catch(e=>{
-      window.location = '/Login';
+    console.log(this.props.courseId)
+    Axios.get('http://localhost:5000/api/quiz/'+this.props.courseId+'/'+this.props.unitId).then(response =>{
+      if(response.status==200){
+        this.setState({
+          quiz:response.data
+        });
+        this.loadQuizData();
+      }
     })
-    this.loadQuizData();
   }
   nextQuestionHandler = () => {
     // console.log('test')
@@ -82,7 +84,7 @@ class MainQuizComponent extends React.Component {
     console.log(this.state.wrongAnswers);
   };
   finishHandler = () => {
-    if (this.state.currentQuestion === quizData.length - 1) {
+    if (this.state.currentQuestion === this.state.quiz.length -1) {
       this.setState({
         isEnd: true
       });

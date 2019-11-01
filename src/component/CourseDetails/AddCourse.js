@@ -13,6 +13,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Axios from "axios";
+import { NotificationManager } from "react-notifications";
 
 const useStyles = makeStyles(theme => ({
   "@global": {
@@ -52,7 +53,7 @@ class AddCourse extends React.Component {
     console.log(uid);
     Axios.get('http://localhost:5000/api/user/' + uid).then(response => {
       if (response.status != 200) window.location = '/Login';
-    }).catch(e=>{
+    }).catch(e => {
       window.location = '/Login';
     })
   }
@@ -64,6 +65,23 @@ class AddCourse extends React.Component {
   onChangeEnrolmentKey = event => {
     this.setState({ enrolmentKey: event.target.value });
   };
+
+  onSubmit = (event) => {
+    event.preventDefault();
+    Axios.post('http://localhost:5000/api/course', {
+      coursename: this.state.courseName,
+      units: 'New course',
+      enrollmentkey: this.state.enrolmentKey
+    }).then(response => {
+      if (response.status == 200) {
+        NotificationManager.info("Unit added !");
+      } else {
+        NotificationManager.error("Error !");
+      }
+    }).catch(e => {
+      NotificationManager.error(e);
+    });
+  }
 
   render() {
     const classes = useStyles;
@@ -105,13 +123,14 @@ class AddCourse extends React.Component {
               label="Remember me"
             />
             <Button
+              onClick={this.onSubmit}
               type="submit"
               fullWidth
               variant="contained"
               color="primary"
               className={classes.submit}
             >
-              Sign In
+              Add Course
             </Button>
             <Grid container>
               <Grid item xs>
