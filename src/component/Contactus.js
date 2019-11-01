@@ -117,7 +117,7 @@ export default function Home() {
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
-                    image="https://source.unsplash.com/random"
+                    image="https://miro.medium.com/max/1875/1*StZ4oLH_4IrRzJcuW3xh1g.jpeg"
                     title="Image title"
                   />
                   <CardContent className={classes.cardContent}>
@@ -135,7 +135,7 @@ export default function Home() {
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
-                    image="https://source.unsplash.com/random"
+                    image="https://atendesigngroup.com/sites/default/files/styles/very_large/public/address-field.png?itok=XSv0R_Ua"
                     title="Image title"
                   />
                   <CardContent className={classes.cardContent}>
@@ -154,16 +154,16 @@ export default function Home() {
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
-                    image="https://source.unsplash.com/random"
+                    image="https://securecdn.pymnts.com/wp-content/uploads/2018/02/facebookpublisher.jpg"
                     title="Image title"
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant="h5" component="h2">
                    
-                    Education
+                    Facebook
                     </Typography>
                     <Typography>
-                    To provide access to the wealth of knowledge embedded in the extraordinary minds of each other.
+                    https://www.facebook.com/sliit.fcmu/
                     </Typography>
                   </CardContent>
                   

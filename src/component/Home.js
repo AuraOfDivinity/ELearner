@@ -116,7 +116,7 @@ export default function Home() {
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
-                    image="https://source.unsplash.com/random"
+                    image="https://wire19.com/wp-content/uploads/2018/11/ai-featured-3-1050x600.jpg"
                     title="Image title"
                   />
                   <CardContent className={classes.cardContent}>
@@ -136,7 +136,7 @@ export default function Home() {
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
-                    image="https://source.unsplash.com/random"
+                    image="https://www.imperial.ac.uk/ImageCropToolT4/imageTool/uploaded-images/newseventsimage_1537198485721_mainnews2012_x1.jpg"
                     title="Image title"
                   />
                   <CardContent className={classes.cardContent}>
@@ -155,7 +155,7 @@ export default function Home() {
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
-                    image="https://source.unsplash.com/random"
+                    image="https://timedotcom.files.wordpress.com/2018/04/listening-to-music-headphones.jpg"
                     title="Image title"
                   />
                   <CardContent className={classes.cardContent}>
@@ -176,7 +176,7 @@ export default function Home() {
       {/* Footer */}
       <footer className={classes.footer}>
         <Typography variant="h6" align="center" gutterBottom>
-          Footer
+          Team Exception
         </Typography>
         <Typography
           variant="subtitle1"
@@ -184,7 +184,7 @@ export default function Home() {
           color="textSecondary"
           component="p"
         >
-          Something here to give the footer a purpose!
+         
         </Typography>
         <Copyright />
       </footer>
