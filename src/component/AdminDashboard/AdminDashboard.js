@@ -11,6 +11,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { Link } from "react-router-dom";
 import Axios from "axios";
+import { NotificationManager } from "react-notifications";
 
 const useStyles = makeStyles(theme => ({
   icon: {
@@ -146,6 +147,7 @@ sendFeedback(templateId, senderEmail, receiverEmail, feedback) {
         .then(res => {
             this.addingBook()
             console.log('MAIL SENT!')
+            NotificationManager.info("User Has Been Promoted !", "Success");
            
             this.setState({
                 formEmailSent: true
@@ -206,13 +208,7 @@ addingBook(){
                       <form onSubmit={this.onSubmit}>
                       <input type="submit" className="btn green" value="Promoate" />
                      </form>
-                      <Button
-                        size="small"
-                        color="danger"
-                        onClick={() => this.handleDeleteClick(card.id)}
-                      >
-                        Delete User
-                      </Button>
+                     
                     </CardActions>
                   </Card>
                 </Grid>
