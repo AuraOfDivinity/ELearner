@@ -90,20 +90,6 @@ export default function Home() {
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justify="center">
                 <Grid item>
-                  <Link to="/SignUp">
-                    <Button variant="outlined" color="primary">
-                      Sign Up
-                    </Button>
-                  </Link>
-                </Grid>
-                <Grid item>
-                  <Link to="/Login">
-                    <Button variant="outlined" color="primary">
-                      Login
-                    </Button>
-                  </Link>
-                </Grid>
-                <Grid item>
                   <Link to="/aboutus">
                     <Button variant="contained" color="primary">
                       About Us
@@ -131,7 +117,7 @@ export default function Home() {
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
-                    image="https://source.unsplash.com/random"
+                    image="https://www.nebraskapta.org/s/cc_images/teaserbox_954157418.jpg?t=1538582346"
                     title="Image title"
                   />
                   <CardContent className={classes.cardContent}>
@@ -149,7 +135,7 @@ export default function Home() {
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
-                    image="https://source.unsplash.com/random"
+                    image="https://www.datocms-assets.com/7756/1555405528-achievementcv.jpg"
                     title="Image title"
                   />
                   <CardContent className={classes.cardContent}>
@@ -168,7 +154,7 @@ export default function Home() {
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
-                    image="https://source.unsplash.com/random"
+                    image="http://www.ngopulse.org/sites/default/files/styles/article-top-image-w320/public/image/images/student-education.jpg?itok=UtL0WKTG"
                     title="Image title"
                   />
                   <CardContent className={classes.cardContent}>

@@ -50,6 +50,7 @@ const useStyles = makeStyles(theme => ({
   cardContent: {
     flexGrow: 1
   },
+
   footer: {
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(6)
@@ -90,20 +91,6 @@ export default function Home() {
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justify="center">
                 <Grid item>
-                  <Link to="/SignUp">
-                    <Button variant="contained" color="primary">
-                      Sign Up
-                    </Button>
-                  </Link>
-                </Grid>
-                <Grid item>
-                  <Link to="/Login">
-                    <Button variant="outlined" color="primary">
-                      Login
-                    </Button>
-                  </Link>
-                </Grid>
-                <Grid item>
                   <Link to="/aboutus">
                     <Button variant="outlined" color="primary">
                       About Us
@@ -124,41 +111,72 @@ export default function Home() {
         <Container className={classes.cardGrid} maxWidth="md">
           {/* End hero unit */}
           <Grid container spacing={4}>
-            {cards.map(card => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
+           
+              <Grid item xs={12} sm={6} md={4}>
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
-                    image="https://source.unsplash.com/random"
+                    image="https://wire19.com/wp-content/uploads/2018/11/ai-featured-3-1050x600.jpg"
                     title="Image title"
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      Heading
+                      AI Course
                     </Typography>
                     <Typography>
                       This is a media card. You can use this section to describe
                       the content.
                     </Typography>
                   </CardContent>
-                  <CardActions>
-                   <Link to="/AddCourse" ><Button size="small" color="primary">
-                      View
-                    </Button></Link>
-                    <Button size="small" color="primary">
-                      Edit
-                    </Button>
-                  </CardActions>
+                 
                 </Card>
               </Grid>
-            ))}
+          
+              <Grid item xs={12} sm={6} md={4}>
+                <Card className={classes.card}>
+                  <CardMedia
+                    className={classes.cardMedia}
+                    image="https://www.imperial.ac.uk/ImageCropToolT4/imageTool/uploaded-images/newseventsimage_1537198485721_mainnews2012_x1.jpg"
+                    title="Image title"
+                  />
+                  <CardContent className={classes.cardContent}>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      Chemistry
+                    </Typography>
+                    <Typography>
+                      This is a media card. You can use this section to describe
+                      the content.
+                    </Typography>
+                  </CardContent>
+                 
+                </Card>
+              </Grid>
+              <Grid item xs={12} sm={6} md={4}>
+                <Card className={classes.card}>
+                  <CardMedia
+                    className={classes.cardMedia}
+                    image="https://timedotcom.files.wordpress.com/2018/04/listening-to-music-headphones.jpg"
+                    title="Image title"
+                  />
+                  <CardContent className={classes.cardContent}>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      Western Music
+                    </Typography>
+                    <Typography>
+                      This is a media card. You can use this section to describe
+                      the content.
+                    </Typography>
+                  </CardContent>
+                
+                </Card>
+              </Grid>
           </Grid>
         </Container>
       </main>
       {/* Footer */}
       <footer className={classes.footer}>
         <Typography variant="h6" align="center" gutterBottom>
-          Footer
+          Team Exception
         </Typography>
         <Typography
           variant="subtitle1"
@@ -166,7 +184,7 @@ export default function Home() {
           color="textSecondary"
           component="p"
         >
-          Something here to give the footer a purpose!
+         
         </Typography>
         <Copyright />
       </footer>
