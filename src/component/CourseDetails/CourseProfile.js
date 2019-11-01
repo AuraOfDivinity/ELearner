@@ -7,6 +7,7 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { Link } from "react-router-dom";
 import Axios from "axios";
+import MainQuizComponent from '../QuizComponent/MainQuizComponent'
 
 class CourseProfile extends React.Component {
   constructor(props) {
@@ -74,7 +75,7 @@ class CourseProfile extends React.Component {
                     color="primary"
                     style={{ margin: "10px" }}
                   >
-                    Add Unit Questions
+                    Next Unit
                     </Button>
                 </Link>
                 <Button
@@ -83,12 +84,14 @@ class CourseProfile extends React.Component {
                   onClick={() => this.handleDeleteClick(currentUnit.unitid)}
                   style={{ margin: "10px" }}
                 >
-                  Delete Unit
+                  Previous Unit
                   </Button>
+                  <MainQuizComponent courseId={this.state.courseid} unitId={currentUnit.unitid}/>
               </div>
             );
           })}
         </CardContent>
+        
       </Card>
     );
   }

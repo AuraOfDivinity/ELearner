@@ -8,7 +8,7 @@ class UserList extends Component {
     constructor() {
         super();
         this.state = {
-            uses: null
+            uses: []
         }
     }
 
@@ -26,19 +26,11 @@ class UserList extends Component {
 
     getBus() {
         console.log('Mounted')
-
-        // db.collection('Buses')
-        //  .get()
-        //  .then(    snapshot => {
-        //     const busses = []
-        //     snapshot.forEach( doc =>{
-        //        const data = doc.data()
-        //        busses.push(data)
-        //   })
-        //   this.setState({   busses: busses})
-        //   console.log(snapshot)
-        // })
-        //  .catch(   error => console.log(error))
+        Axios.get('http://localhost:5000/api/user').then(response=>{
+            this.setState({
+                user : response
+            })
+        })
     }
 
 
@@ -51,7 +43,7 @@ class UserList extends Component {
         const UserItems = this.state.uses &&
             this.state.uses.map(user => {
                 return (
-                    <UserItem key={user.uid} item={user} />
+                    <UserItem key={user.username} item={user} />
                 )
             })
         return (

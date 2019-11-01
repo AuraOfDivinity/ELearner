@@ -10,6 +10,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { Link } from "react-router-dom";
+import Axios from "axios";
 
 const useStyles = makeStyles(theme => ({
   icon: {
@@ -55,6 +56,15 @@ class StudentDashboard extends React.Component {
 
   handleRegisterClick = () => {};
 
+  componentDidMount(){
+    const uid = localStorage.getItem('uid');
+    console.log(uid);
+    Axios.get('http://localhost:5000/api/user/' + uid).then(response => {
+      if (response.status != 200) window.location = '/Login';
+    }).catch(e=>{
+      window.location = '/Login';
+    })
+  }
   render() {
     const classes = useStyles;
 
