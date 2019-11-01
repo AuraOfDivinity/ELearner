@@ -70,7 +70,7 @@ class Login extends Component {
             switch (response.data.usertype) {
               case "student":
                 NotificationManager.info("Welcome :)", "Success");
-                window.location = "/AllCourses";
+                window.location = "/StudentDashboard";
                 break;
               case "admin":
                 NotificationManager.info("Welcome :)", "Success");
@@ -78,7 +78,7 @@ class Login extends Component {
                 break;
               case "moderator":
                 NotificationManager.info("Welcome :)", "Success");
-                window.location = "/StudentCourses";
+                window.location = "/AllCourses";
                 break;
               default:
                 NotificationManager.error("Api error !");

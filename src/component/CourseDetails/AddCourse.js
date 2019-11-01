@@ -53,8 +53,6 @@ class AddCourse extends React.Component {
     console.log(uid);
     Axios.get('http://localhost:5000/api/user/' + uid).then(response => {
       if (response.status != 200) window.location = '/Login';
-    }).catch(e => {
-      window.location = '/Login';
     })
   }
 
@@ -93,7 +91,7 @@ class AddCourse extends React.Component {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Add Course
           </Typography>
           <form className={classes.form} noValidate>
             <TextField

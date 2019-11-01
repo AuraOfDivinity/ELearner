@@ -11,6 +11,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { Link } from "react-router-dom";
 import Axios from "axios";
+import { borderRadius } from "@material-ui/system";
 
 const useStyles = makeStyles(theme => ({
   icon: {
@@ -96,8 +97,10 @@ class AllCourses extends React.Component {
                 align="center"
                 color="textPrimary"
                 gutterBottom
-              >
+              ><br/>
+              <h2 style={{backgroundColor:'#c2ebff', borderRadius: '10px'}}>
                 All Available Courses
+                </h2>
               </Typography>
             </Container>
           </div>
@@ -139,8 +142,17 @@ class AllCourses extends React.Component {
                   </Card>
                 </Grid>
               ))}
+              <div style={{margin: 'auto'}}>
+              <Link to="./AddCourse/">
+          <Button size="large" color="primary" variant="contained">
+                Add Course
+          </Button>
+          </Link>
+          </div>
             </Grid>
+            
           </Container>
+          
         </main>
       </React.Fragment>
     );
