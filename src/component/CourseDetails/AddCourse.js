@@ -53,6 +53,7 @@ class AddCourse extends React.Component {
     console.log(uid);
     Axios.get('http://localhost:5000/api/user/' + uid).then(response => {
       if (response.status != 200) window.location = '/Login';
+      if(response.data.usertype != 'admin' || response.data.usertype != 'moderator') window.location ='/';
     })
   }
 

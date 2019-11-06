@@ -16,6 +16,7 @@ import Container from "@material-ui/core/Container";
 import firebase from "firebase";
 import axios from "axios";
 import { NotificationManager } from "react-notifications";
+import Axios from "axios";
 
 const useStyles = makeStyles(theme => ({
   "@global": {
@@ -49,6 +50,16 @@ class Login extends Component {
       email: "",
       password: ""
     };
+  }
+
+  componentDidMount() {
+    const uid = localStorage.getItem('uid');
+    console.log(uid);
+    Axios.get('http://localhost:5000/api/user/' + uid).then(response => {
+      if (response.status == 200) window.location = '/';
+    }).catch(e => {
+      window.location = '/Login';
+    })
   }
 
   onChangeEmail = event => {
